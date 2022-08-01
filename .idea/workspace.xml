@@ -1,0 +1,844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7aa63bbf-a138-42ae-adec-721c6feea853" name="Default Changelist" comment="">
+      <change beforePath="P:/spring-boot-2.3.1.RELEASE/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="P:/spring-boot-2.3.1.RELEASE/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="P:/spring-boot-2.3.1.RELEASE/spring-boot-zweb/src/main/java/com/test/Application.java" beforeDir="false" afterPath="P:/spring-boot-2.3.1.RELEASE/spring-boot-zweb/src/main/java/com/test/Application.java" afterDir="false" />
+      <change beforePath="P:/spring-boot-2.3.1.RELEASE/spring-boot-zweb/src/main/java/com/test/MyText.java" beforeDir="false" afterPath="P:/spring-boot-2.3.1.RELEASE/spring-boot-zweb/src/main/java/com/test/MyText.java" afterDir="false" />
+      <change beforePath="P:/spring-boot-2.3.1.RELEASE/spring-boot-zweb/src/main/java/com/test/bean/Person.java" beforeDir="false" afterPath="P:/spring-boot-2.3.1.RELEASE/spring-boot-zweb/src/main/java/com/test/bean/Person.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="P:/spring-boot-2.3.1.RELEASE">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="P:/spring-boot-2.3.1.RELEASE" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="P:/apache-maven-3.8.1" />
+        <option name="userSettingsFile" value="P:\apache-maven-3.8.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="#JAVA_HOME" />
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+  </component>
+  <component name="ProjectId" id="2CkTezIBlSf4RRMms58eao3ynSB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="P:/spring-boot-2.3.1.RELEASE" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.37471086" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.ignored.files" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.springboot" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="P:\workspace\SpringBootTest\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.Application">
+    <configuration name="Application (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-zweb.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.test.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="SpringBootTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.springboot.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.springboot.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DevToolsTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-project.spring-boot-devtools.intTest" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.DevToolsTestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ExitCodeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-project.spring-boot-docs.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.springframework.boot.docs.ExitCodeApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Hibernate52Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-hibernate52.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.springframework.boot.tests.hibernate52.Hibernate52Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleActiveMQApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-activemq.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.activemq.SampleActiveMQApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleActuatorApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-actuator.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.actuator.SampleActuatorApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleActuatorCustomSecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-actuator-custom-security.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.actuator.customsecurity.SampleActuatorCustomSecurityApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleActuatorLog4J2Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-actuator-log4j2.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.actuator.log4j2.SampleActuatorLog4J2Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleActuatorNoWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-actuator-noweb.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.actuator.noweb.SampleActuatorNoWebApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleActuatorUiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-actuator-ui.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.actuator.ui.SampleActuatorUiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleAmqpSimpleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-amqp.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.amqp.SampleAmqpSimpleApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleAnimatedBannerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-animated-banner.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.animated.SampleAnimatedBannerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleAopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-aop.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.aop.SampleAopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleAtmosphereApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-atmosphere.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.atmosphere.SampleAtmosphereApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleAtomikosApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-jta-atomikos.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.atomikos.SampleAtomikosApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleBatchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-batch.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.batch.SampleBatchApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleBitronixApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-jta-bitronix.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.bitronix.SampleBitronixApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleCacheApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-cache.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.cache.SampleCacheApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleCoroutinesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-webflux-coroutines.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.coroutines.SampleCoroutinesApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleCouchbaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-couchbase.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.couchbase.SampleCouchbaseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleDataJdbcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-jdbc.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.jdbc.SampleDataJdbcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleDataJpaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-jpa.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.jpa.SampleDataJpaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleDataRestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-rest.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.rest.SampleDataRestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleDevToolsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-devtools.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.devtools.SampleDevToolsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleElasticsearchApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-elasticsearch.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.elasticsearch.SampleElasticsearchApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleFlywayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-flyway.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.flyway.SampleFlywayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleGroovyTemplateApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-groovy-templates.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.groovytemplates.SampleGroovyTemplateApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleHateoasApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-hateoas.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.hateoas.SampleHateoasApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleHazelcast4Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-hazelcast4.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.hazelcast4.SampleHazelcast4Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleIntegrationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-integration.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.integration.SampleIntegrationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleJUnitJupiterApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-junit-jupiter.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.SampleJUnitJupiterApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleJUnitVintageApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-junit-vintage.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.SampleJUnitVintageApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleJerseyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-jersey.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.jersey.SampleJerseyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleJettyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-jetty.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.jetty.SampleJettyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleJettyJspApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-jetty-jsp.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.jetty.jsp.SampleJettyJspApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleJettySslApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-jetty-ssl.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.jetty.ssl.SampleJettySslApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleJettyWebSocketsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-websocket-jetty.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.websocket.jetty.SampleJettyWebSocketsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleJpaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-jpa.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.jpa.SampleJpaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleKafkaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-kafka.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.kafka.SampleKafkaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleLdapApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-ldap.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.ldap.SampleLdapApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleLiquibaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-liquibase.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.liquibase.SampleLiquibaseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleLogbackApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-logback.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.logback.SampleLogbackApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleMethodSecurityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-method-security.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.security.method.SampleMethodSecurityApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleMongoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-mongodb.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.mongo.SampleMongoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleNeo4jApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-neo4j.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.neo4j.SampleNeo4jApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleOAuth2ClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-oauth2-client.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.oauth2.client.SampleOAuth2ClientApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleOauth2ResourceServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-oauth2-resource-server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.oauth2.resource.SampleOauth2ResourceServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleProfileApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-profile.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.profile.SampleProfileApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SamplePropertyValidationApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-property-validation.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.propertyvalidation.SamplePropertyValidationApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleQuartzApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-quartz.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.quartz.SampleQuartzApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleR2dbcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-r2dbc.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.r2dbc.SampleR2dbcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleR2dbcFlywayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-r2dbc-flyway.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.r2dbc.SampleR2dbcFlywayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleR2dbcLiquibaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-r2dbc-liquibase.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.r2dbc.SampleR2dbcLiquibaseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleRSocketApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-rsocket.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.rsocket.SampleRSocketApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleReactiveOAuth2ClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-reactive-oauth2-client.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.oauth2.client.SampleReactiveOAuth2ClientApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleReactiveOAuth2ResourceServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-reactive-oauth2-resource-server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.oauth2.resource.SampleReactiveOAuth2ResourceServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleRedisApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-redis.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.redis.SampleRedisApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleSaml2RelyingPartyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-saml2-service-provider.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.saml2.serviceprovider.SampleSaml2RelyingPartyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleSecureApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-secure.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.secure.SampleSecureApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleSecureJerseyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-secure-jersey.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.secure.jersey.SampleSecureJerseyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleSecureWebFluxApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-secure-webflux.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.secure.webflux.SampleSecureWebFluxApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleServletApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-servlet.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.servlet.SampleServletApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleSessionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-session.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.session.SampleSessionApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleSessionWebFluxApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-session-webflux.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.session.SampleSessionWebFluxApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleSimpleApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-simple.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.simple.SampleSimpleApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleSolrApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-data-solr.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.data.solr.SampleSolrApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleSpringXmlApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-xml.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.xml.SampleSpringXmlApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTestApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-test.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.test.SampleTestApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTestNGApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-testng.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.testng.SampleTestNGApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTestNoMockitoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-test-nomockito.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.testnomockito.SampleTestNoMockitoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTomcatApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-tomcat.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.tomcat.SampleTomcatApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTomcatJspApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-tomcat-jsp.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.tomcat.jsp.SampleTomcatJspApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTomcatSslApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-tomcat-ssl.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.tomcat.ssl.SampleTomcatSslApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTomcatTwoConnectorsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-tomcat-multi-connectors.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.tomcat.multiconnector.SampleTomcatTwoConnectorsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTomcatWebSocketApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-websocket-tomcat.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.websocket.tomcat.SampleTomcatWebSocketApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleTraditionalApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-traditional.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.traditional.SampleTraditionalApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleUndertowApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-undertow.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.undertow.SampleUndertowApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleUndertowSslApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-undertow-ssl.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.undertow.ssl.SampleUndertowSslApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleUndertowWebSocketsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-websocket-undertow.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.websocket.undertow.SampleUndertowWebSocketsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWarApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-war.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.war.SampleWarApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebFluxApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-webflux.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.webflux.SampleWebFluxApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebFreeMarkerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-freemarker.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.freemarker.SampleWebFreeMarkerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebJspApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-jsp.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.jsp.SampleWebJspApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebMustacheApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-mustache.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.mustache.SampleWebMustacheApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebSecureApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-secure.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.web.secure.SampleWebSecureApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebSecureCustomApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-secure-custom.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.web.secure.custom.SampleWebSecureCustomApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebSecureJdbcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-secure-jdbc.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.web.secure.jdbc.SampleWebSecureJdbcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebServicesApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-webservices.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.webservices.SampleWebServicesApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebStaticApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-static.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.web.staticcontent.SampleWebStaticApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SampleWebUiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="spring-boot-build.spring-boot-tests.spring-boot-smoke-tests.spring-boot-smoke-test-web-ui.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="smoketest.web.ui.SampleWebUiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7aa63bbf-a138-42ae-adec-721c6feea853" name="Default Changelist" comment="" />
+      <created>1659345681211</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659345681211</updated>
+      <workItem from="1659345684230" duration="3064000" />
+      <workItem from="1659348757777" duration="2818000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1659345833389">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659345833389" />
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1659346701915">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659346701915" />
+    <state x="756" y="244" key="DetectedRootsChooserDialog" timestamp="1659350509880">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="756" y="244" key="DetectedRootsChooserDialog/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659350509880" />
+    <state x="954" y="234" key="FileChooserDialogImpl" timestamp="1659350508503">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="954" y="234" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659350508503" />
+    <state width="1877" height="216" key="GridCell.Tab.0.bottom" timestamp="1659352080670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="216" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659352080670" />
+    <state width="1877" height="216" key="GridCell.Tab.0.center" timestamp="1659352080670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="216" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659352080669" />
+    <state width="1877" height="216" key="GridCell.Tab.0.left" timestamp="1659352080669">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="216" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659352080669" />
+    <state width="1877" height="216" key="GridCell.Tab.0.right" timestamp="1659352080670">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="216" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659352080670" />
+    <state width="1877" height="221" key="GridCell.Tab.1.bottom" timestamp="1659348750272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="221" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659348750272" />
+    <state width="1877" height="221" key="GridCell.Tab.1.center" timestamp="1659348750272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="221" key="GridCell.Tab.1.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659348750272" />
+    <state width="1877" height="221" key="GridCell.Tab.1.left" timestamp="1659348750272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="221" key="GridCell.Tab.1.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659348750272" />
+    <state width="1877" height="221" key="GridCell.Tab.1.right" timestamp="1659348750272">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="221" key="GridCell.Tab.1.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659348750272" />
+    <state width="1877" height="221" key="GridCell.Tab.2.bottom" timestamp="1659348750274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="221" key="GridCell.Tab.2.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659348750274" />
+    <state width="1877" height="221" key="GridCell.Tab.2.center" timestamp="1659348750273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="221" key="GridCell.Tab.2.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659348750273" />
+    <state width="1877" height="221" key="GridCell.Tab.2.left" timestamp="1659348750273">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="221" key="GridCell.Tab.2.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659348750273" />
+    <state width="1877" height="221" key="GridCell.Tab.2.right" timestamp="1659348750274">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="221" key="GridCell.Tab.2.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659348750274" />
+    <state x="648" y="214" key="NewModule_or_Project.wizard" timestamp="1659348892238">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="648" y="214" key="NewModule_or_Project.wizard/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659348892238" />
+    <state x="186" y="57" width="1645" height="908" key="SettingsEditor" timestamp="1659350520613">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="186" y="57" width="1645" height="908" key="SettingsEditor/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1659350520613" />
+  </component>
+</project>
