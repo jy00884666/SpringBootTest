@@ -34,9 +34,12 @@ lib/
 manifest.yml
 out
 overridedb.*
-target
+target/
 transaction-logs
 .flattened-pom.xml
 secrets.yml
 .gradletasknamecache
 .sts4-cache
+*.class
+
+
