@@ -3,16 +3,21 @@ package com.springboot.config;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.core.AcknowledgeMode;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
+import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.MessageConversionException;
+import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -92,7 +97,33 @@ public class RabbitmqConfig {
         template.setMandatory(mandatory);
         // 消息处理失败回调方法
         template.setReturnCallback(returnCallback());
+        // 消息转换器,发送 || 接受
+        //template.setMessageConverter(messageConverter());
         return template;
+    }
+    
+    /**
+     * 申明消费者,可以用 @RabbitListener注解的方式,可以向这样用@Bean方式申明设置参数,然后使用
+     * @RabbitListener(queues = "com.direct.testManualQueue", containerFactory = "simpleRabbitListenerContainerFactory")
+     *
+     * 使用RabbitMq,发送消息确认,需要使用rabbitTemplate的ConfimCallback方法和ReturnCallback方法,网上大多配置为全局修改,
+     * 如果需要对单个生产者进行配置,则需要将rabbitTemplate设置为多例,在需要单独配置的生产者
+     * 使用@PostConstruct注解进行设置rabbitTemplate的ConfimCallback方法和ReturnCallback方法
+     */
+    @Bean(name = "simpleRabbitListenerContainerFactory")
+    public SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory(ConnectionFactory connection) {
+        // 申明消费者
+        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+        factory.setConnectionFactory(connection);
+        // NONE:不确认,MANUAL:手动确认,AUTO:自动确认(默认)
+        factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
+        // 默认消费者数量
+        //factory.setConcurrentConsumers(5);
+        // 最大消费者数量
+        //factory.setMaxConcurrentConsumers(10);
+        // 每次给消费者发送的消息数量
+        factory.setPrefetchCount(1);
+        return factory;
     }
     
     /**
@@ -142,6 +173,40 @@ public class RabbitmqConfig {
                 logger.info("回复内容: {}", replyText);
                 logger.info("交换机: {}", exchange);
                 logger.info("路由键: {}", routingKey);
+            }
+        };
+    }
+    
+    /*消息转换器*/
+    /*配合template.setMessageConverter(messageConverter());一起使用,
+     *单独注解@Bean就被Spring管理了,即使没有设置setMessageConverter也一样会在消息发送和接收的时候被执行*/
+    //@Bean
+    public MessageConverter messageConverter() {
+        return new MessageConverter() {
+            /*发送消息时参数转换成什么样子*/
+            @Override
+            public Message toMessage(Object o, MessageProperties messageProperties) throws MessageConversionException {
+                /**入参:
+                 * Object o:发送消息时的message,rabbitTemplate.convertAndSend(exchangeName, rountingKey, message,
+                 * correlationData);
+                 * messageProperties:消息配置*/
+                logger.info("转换消息内容o={}", JSON.toJSONString(o));
+                logger.info("此次消息配置messageProperties={}", JSON.toJSONString(messageProperties));
+                
+                Message message = new Message(JSON.toJSONBytes(o), messageProperties);
+                return message;
+            }
+            
+            /*接收消息时参数转换成什么样子*/
+            @Override
+            public Object fromMessage(Message message) throws MessageConversionException {
+                logger.info("接收消息内容信息message={}", JSON.toJSONString(message));
+                // 消息内容
+                byte[] body = message.getBody();
+                logger.info("接受消息内容body={}", (Object) JSON.parseObject(body, Object.class));
+                // 消息配置
+                MessageProperties messageProperties = message.getMessageProperties();
+                return JSON.parseObject(body, Object.class);
             }
         };
     }
@@ -247,6 +312,23 @@ public class RabbitmqConfig {
     public Binding bindingDirect(@Qualifier(value = "directQueue") Queue directQueue,
                                  @Qualifier(value = "directExchange") DirectExchange directExchange) {
         return BindingBuilder.bind(directQueue).to(directExchange).with("com.direct.testRountingKey");
+    }
+    
+    /*-----------------------------------手动确认消息队列----------------------------------*/
+    @Bean(name = "manualQueue")
+    public Queue manualQueue() {
+        return new Queue("com.direct.testManualQueue", true, false, false);
+    }
+    
+    @Bean(name = "manualExchange")
+    public DirectExchange manualExchange() {
+        return new DirectExchange("com.direct.testManualExchange", true, false);
+    }
+    
+    @Bean(name = "bindingManual")
+    public Binding bindingManual(@Qualifier(value = "manualQueue") Queue directQueue,
+                                 @Qualifier(value = "manualExchange") DirectExchange directExchange) {
+        return BindingBuilder.bind(directQueue).to(directExchange).with("com.direct.testManualRountingKey");
     }
     
 }

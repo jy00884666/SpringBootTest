@@ -38,21 +38,27 @@ public class RabbitmqProducerTest {
          * 入参3:消息队列与交换机绑定的BindingKey
          * 入参4:消息内容
          * */
-        producer.send("com.topic.TestExchange", "com.topic.testRountingKey1", "消息内容a1", "发送消息id1");
-        producer.send("com.topic.TestExchange", "com.topic.testRountingKey2", "消息内容a2", "发送消息id2");
-        /*单对单生产消费消息*/
-        producer.send("com.direct.TestExchange", "com.direct.testRountingKey", "消息内容a3", "发送消息id3");
+        //producer.send("com.topic.TestExchange", "com.topic.testRountingKey1", "消息内容a1", "发送消息id1");
+        //producer.send("com.topic.TestExchange", "com.topic.testRountingKey2", "消息内容a2", "发送消息id2");
+        /*------------------单对单生产消费消息--------------*/
+        //producer.send("com.direct.TestExchange", "com.direct.testRountingKey", "消息内容a3", "发送消息id3");
         
         /*MAP入参*/
-        Map map = new HashMap();
+        /*Map map = new HashMap();
         map.put("id", "111");
         map.put("name", "消息内容a4");
         producer.send("com.topic.TestExchange", "com.topic.testRountingKey4", map, "发送消息id4");
         map.clear();
         map.put("id", "222");
         map.put("name", "消息内容a5");
-        producer.send("com.direct.TestExchange", "com.direct.testRountingKey", map, "发送消息id5");
+        producer.send("com.direct.TestExchange", "com.direct.testRountingKey", map, "发送消息id5");*/
         
+        /*----------手动消息确认--------------*/
+        producer.send("com.direct.testManualExchange", "com.direct.testManualRountingKey", "消息内容a6", "发送消息id6");
+        Map map = new HashMap();
+        map.put("id", "777");
+        map.put("name", "消息内容a7");
+        producer.send("com.direct.testManualExchange", "com.direct.testManualRountingKey", map, "发送消息id7");
     }
     
 }
