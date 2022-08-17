@@ -27,11 +27,12 @@ public class RabbitmqProducer {
     
     private static Logger logger = LoggerFactory.getLogger(RabbitmqProducer.class);
     
+    /*Rabbit管理类,使用起来方便*/
     @Autowired
     private RabbitTemplate rabbitTemplate;
     
     /*发送消息*/
-    public void send(String dataId, String exchangeName, String rountingKey, Object message) {
+    public void send(String exchangeName, String rountingKey, Object message, String dataId) {
         // 这里可以用子类继承CorrelationData将message信息包裹进去
         CorrelationData correlationData = new CorrelationData();
         // 消息id
@@ -40,8 +41,10 @@ public class RabbitmqProducer {
         rabbitTemplate.convertAndSend(exchangeName, rountingKey, message, correlationData);
     }
     
-    /** 等同于@RequestMapping(value = “/sendTopicMessage”, method = RequestMethod.GET)
-     * 访问地址 http://localhost:8080/sendTopicMessage   */
+    /**
+     * 等同于@RequestMapping(value = “/sendTopicMessage”, method = RequestMethod.GET)
+     * 访问地址 http://localhost:8080/sendTopicMessage
+     */
     @GetMapping("/sendTopicMessage")
     public String sendTopicMessage() {
         /**
@@ -50,16 +53,21 @@ public class RabbitmqProducer {
          * 入参3:消息队列与交换机绑定的BindingKey
          * 入参4:消息内容
          * */
-        send("发送消息id1", "com.topic.TestExchange", "com.topic.testRountingKey1", "消息内容a1");
-        send("发送消息id2", "com.topic.TestExchange", "com.topic.testRountingKey2", "消息内容a2");
+        send("com.topic.TestExchange", "com.topic.testRountingKey1", "消息内容a1", "发送消息id1");
+        send("com.topic.TestExchange", "com.topic.testRountingKey2", "消息内容a2", "发送消息id2");
         /*单对单生产消费消息*/
-        send("发送消息id3", "com.direct.TestExchange", "com.direct.testRountingKey", "消息内容a3");
+        send("com.direct.TestExchange", "com.direct.testRountingKey", "消息内容a3", "发送消息id3");
         
         /*MAP入参*/
         Map map = new HashMap<>();
-        map.put("id", "1111");
+        map.put("id", "111");
         map.put("name", "消息内容a4");
-        send("发送消息id4", "com.topic.TestExchange", "com.topic.testRountingKey3", map);
+        send("com.topic.TestExchange", "com.topic.testRountingKey3", map, "发送消息id4");
+        map.clear();
+        map.put("id", "222");
+        map.put("name", "消息内容a5");
+        send("com.direct.TestExchange", "com.direct.testRountingKey", map, "发送消息id5");
+        
         return "消息发送OK";
     }
 }

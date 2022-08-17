@@ -25,6 +25,7 @@ public class RabbitmqConfig {
     
     private static Logger logger = LoggerFactory.getLogger(RabbitmqConfig.class);
     
+    /*-------------------------配置文件中获取值 src/main/resources/application.properties---------------------------*/
     @Value("${spring.rabbitmq.host}")
     private String host;
     
@@ -64,9 +65,9 @@ public class RabbitmqConfig {
         con.setUsername(username);
         // 密码
         con.setPassword(password);
-        // 是否开启消息确认机制,可以配置
+        // 是否开启消息确认机制,若使用confirm-callback,必须要配置publisherConfirms为true
         con.setPublisherConfirms(publisherConfirmsType);
-        // 是否开启 Return 机制,可以配置
+        // 是否开启 Return 机制,若使用return-callback,必须要配置publisherReturns为true
         con.setPublisherReturns(publisherReturnsType);
         return con;
     }
@@ -78,15 +79,18 @@ public class RabbitmqConfig {
         RabbitTemplate template = new RabbitTemplate(connectionFactory);
         // 也可以通过方法存入RabbitMQ连接
         //template.setConnectionFactory(connectionFactory);
-        // 启用 Confirm 机制,ConfirmCallback接口用于实现消息发送到RabbitMQ交换器后接收ack回调
+        /**启用 Confirm 机制,ConfirmCallback接口用于实现消息发送到RabbitMQ交换器后接收ack回调
+         * 如果消息没有到exchange,则confirm回调,ack=false
+         * 如果消息到达exchange,则confirm回调,ack=true*/
         template.setConfirmCallback(confirmCallback());
         /**
-         * 当mandatory标志位设置为true时
-         * 如果exchange根据自身类型和消息routingKey无法找到一个合适的queue存储消息
+         * 是否开启消息处理失败回调,使用return-callback时必须设置mandatory为true，或者在配置中设置mandatory-expression的值为true
+         * 当mandatory标志位设置为true时,如果exchange根据自身类型和消息routingKey无法找到一个合适的queue存储消息
          * 那么broker会调用returnCallback()方法将消息返还给生产者
          * 当mandatory设置为false时，出现上述情况broker会直接将消息丢弃
          */
         template.setMandatory(mandatory);
+        // 消息处理失败回调方法
         template.setReturnCallback(returnCallback());
         return template;
     }
@@ -136,7 +140,7 @@ public class RabbitmqConfig {
                 logger.info("消息主体: {}", message);
                 logger.info("回复编码: {}", replyCode);
                 logger.info("回复内容: {}", replyText);
-                logger.info("交换器: {}", exchange);
+                logger.info("交换机: {}", exchange);
                 logger.info("路由键: {}", routingKey);
             }
         };
@@ -147,16 +151,44 @@ public class RabbitmqConfig {
     // 消息队列起名：com.topic.testQueue
     @Bean(name = "topicQueue")
     public Queue topicQueue() {
-        // durable:是否持久化,默认是false,持久化队列：会被存储在磁盘上，当消息代理重启时仍然存在，暂存队列：当前连接有效
-        // exclusive:默认也是false，只能被当前创建的连接使用，而且当连接关闭后队列即被删除。此参考优先级高于durable
-        // autoDelete:是否自动删除，当没有生产者或者消费者使用此队列，该队列会自动删除。
-        return new Queue("com.topic.testQueue", false, false, false);
+        /**
+         * durable:是否持久化,默认是false,持久化队列：队列在内存中,服务器挂掉后,队列就没了;
+         *          true:服务器重启后,队列将会重新生成.注意:只是队列持久化,不代表队列中的消息持久化
+         * exclusive:队列是否专属,默认也是false,只能被当前创建的连接使用,而且当连接关闭后队列即被删除。此参考优先级高于durable
+         * autoDelete:是否自动删除,默认false,当没有生产者或者消费者使用此队列，该队列是否会自动删除。
+         *            如果还没有消费者从该队列获取过消息或者监听该队列,那么该队列不会删除.
+         *            只有在有消费者从该队列获取过消息后,该队列才有可能自动删除(当所有消费者都断开连接,不管消息是否获取完)
+         * arguments: null,队列的配置,具体如下
+         *            Message TTL : 消息生存期
+         *            Auto expire : 队列生存期
+         *            Max length : 队列可以容纳的消息的最大条数
+         *            Max length bytes : 队列可以容纳的消息的最大字节数
+         *            Overflow behaviour : 队列中的消息溢出后如何处理
+         *            Dead letter exchange : 溢出的消息需要发送到绑定该死信交换机的队列
+         *            Dead letter routing key : 溢出的消息需要发送到绑定该死信交换机,并且路由键匹配的队列
+         *            Maximum priority : 最大优先级
+         *            Lazy mode : 懒人模式
+         *      例如: Map<String, Object> args = new HashMap<>();
+         *            args.put("x-max-length",10);
+         *            args.put("x-overflow", "reject-publish");//拒绝发布,丢弃最新发布的消息
+         */
+        return new Queue("com.topic.testQueue", true, false, false);
     }
     
     // Exchange交换机起名：com.topic.TestExchange
     @Bean(name = "topicExchange")
     public TopicExchange topicExchange() {
-        return new TopicExchange("com.topic.TestExchange", false, false);
+        /**
+         * exchange：名称
+         * type：类型,无需设置
+         * durable：是否持久化，true:当RabbitMQ崩溃了重启后exchange仍然存在,false:RabbitMQ关闭后，没有持久化的Exchange将被清除
+         *          设置exchange为持久化之后，并不能保证消息不丢失，因为此时发送往exchange中的消息并不是持久化的，
+         *          需要配置delivery_mode=2指明message为持久的。
+         * autoDelete：是否自动删除，true:如果没有与之绑定的Queue，直接删除
+         * internal：是否内置的，如果为true，只能通过Exchange到Exchange,方法设置值在父类,没有构造方法设置值
+         * arguments：结构化参数
+         * */
+        return new TopicExchange("com.topic.TestExchange", true, false);
     }
     
     // 绑定,将队列和交换机绑定,要是消息携带的路由键RountingKey是以com.topic.开头,都会分发到该队列
@@ -170,16 +202,44 @@ public class RabbitmqConfig {
     // 消息队列起名：com.direct.testQueue
     @Bean(name = "directQueue")
     public Queue directQueue() {
-        // durable:是否持久化,默认是false,持久化队列：会被存储在磁盘上，当消息代理重启时仍然存在，暂存队列：当前连接有效
-        // exclusive:默认也是false，只能被当前创建的连接使用，而且当连接关闭后队列即被删除。此参考优先级高于durable
-        // autoDelete:是否自动删除，当没有生产者或者消费者使用此队列，该队列会自动删除。
-        return new Queue("com.direct.testQueue", false, false, false);
+        /**
+         * durable:是否持久化,默认是false,持久化队列：队列在内存中,服务器挂掉后,队列就没了;
+         *          true:服务器重启后,队列将会重新生成.注意:只是队列持久化,不代表队列中的消息持久化
+         * exclusive:队列是否专属,默认也是false,只能被当前创建的连接使用,而且当连接关闭后队列即被删除。此参考优先级高于durable
+         * autoDelete:是否自动删除,默认false,当没有生产者或者消费者使用此队列，该队列是否会自动删除。
+         *            如果还没有消费者从该队列获取过消息或者监听该队列,那么该队列不会删除.
+         *            只有在有消费者从该队列获取过消息后,该队列才有可能自动删除(当所有消费者都断开连接,不管消息是否获取完)
+         * arguments: null,队列的配置,具体如下
+         *            Message TTL : 消息生存期
+         *            Auto expire : 队列生存期
+         *            Max length : 队列可以容纳的消息的最大条数
+         *            Max length bytes : 队列可以容纳的消息的最大字节数
+         *            Overflow behaviour : 队列中的消息溢出后如何处理
+         *            Dead letter exchange : 溢出的消息需要发送到绑定该死信交换机的队列
+         *            Dead letter routing key : 溢出的消息需要发送到绑定该死信交换机,并且路由键匹配的队列
+         *            Maximum priority : 最大优先级
+         *            Lazy mode : 懒人模式
+         *      例如: Map<String, Object> args = new HashMap<>();
+         *            args.put("x-max-length",10);
+         *            args.put("x-overflow", "reject-publish");//拒绝发布,丢弃最新发布的消息
+         */
+        return new Queue("com.direct.testQueue", true, false, false);
     }
     
     // Exchange交换机起名：com.direct.TestExchange
     @Bean(name = "directExchange")
     public DirectExchange directExchange() {
-        return new DirectExchange("com.direct.TestExchange", false, false);
+        /**
+         * exchange：名称
+         * type：类型,无需设置
+         * durable：是否持久化，true:当RabbitMQ崩溃了重启后exchange仍然存在,false:RabbitMQ关闭后，没有持久化的Exchange将被清除
+         *          设置exchange为持久化之后，并不能保证消息不丢失，因为此时发送往exchange中的消息并不是持久化的，
+         *          需要配置delivery_mode=2指明message为持久的。
+         * autoDelete：是否自动删除，true:如果没有与之绑定的Queue，直接删除
+         * internal：是否内置的，如果为true，只能通过Exchange到Exchange,方法设置值在父类,没有构造方法设置值
+         * arguments：结构化参数
+         * */
+        return new DirectExchange("com.direct.TestExchange", true, false);
     }
     
     // 绑定,将队列和交换机绑定,并设置用于匹配键：com.direct.testRountingKey
