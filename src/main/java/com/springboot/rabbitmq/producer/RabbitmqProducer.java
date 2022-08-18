@@ -67,6 +67,13 @@ public class RabbitmqProducer {
         map.put("id", "222");
         map.put("name", "消息内容a5");
         send("com.direct.TestExchange", "com.direct.testRountingKey", map, "发送消息id5");
+    
+        /*----------手动消息确认----死信消息例子----------*/
+        send("com.direct.testManualExchange", "com.direct.testManualRountingKey", "消息内容a6", "发送消息id6");
+        map.clear();
+        map.put("id", "777");
+        map.put("name", "消息内容a7");
+        send("com.direct.testManualExchange", "com.direct.testManualRountingKey", map, "发送消息id7");
         
         return "消息发送OK";
     }

@@ -20,9 +20,14 @@ import org.springframework.amqp.support.converter.MessageConversionException;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /*RabbitMQ配置类*/
 @Configuration
@@ -79,6 +84,17 @@ public class RabbitmqConfig {
     
     /*使用RabbitTemplate进行收发消息将十分的方便*/
     @Bean
+    /**@Scope(value=ConfigurableBeanFactory.SCOPE_PROTOTYPE)多例模式:这个是说在每次注入的时候会自动创建一个新的bean实例
+     * @Scope(value=ConfigurableBeanFactory.SCOPE_SINGLETON)单例模式:在整个应用中只能创建一个实例
+     * @Scope(value=WebApplicationContext.SCOPE_GLOBAL_SESSION)全局session中的一般不常用
+     * @Scope(value=WebApplicationContext.SCOPE_APPLICATION)在一个web应用中只创建一个实例
+     * @Scope(value=WebApplicationContext.SCOPE_REQUEST)在一个请求中创建一个实例
+     * @Scope(value=WebApplicationContext.SCOPE_SESSION)每次创建一个会话中创建一个实例
+     * 里面还有个属性
+     *    proxyMode=ScopedProxyMode.INTERFACES创建一个JDK代理模式
+     *    proxyMode=ScopedProxyMode.TARGET_CLASS基于类的代理模式
+     *    proxyMode=ScopedProxyMode.NO（默认）不进行代理*/
+    //@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
     public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) throws Exception {
         // 构造方法声明
         RabbitTemplate template = new RabbitTemplate(connectionFactory);
@@ -105,10 +121,11 @@ public class RabbitmqConfig {
     /**
      * 申明消费者,可以用 @RabbitListener注解的方式,可以向这样用@Bean方式申明设置参数,然后使用
      * @RabbitListener(queues = "com.direct.testManualQueue", containerFactory = "simpleRabbitListenerContainerFactory")
+     * 来监消息队列(消息消费者)
      *
-     * 使用RabbitMq,发送消息确认,需要使用rabbitTemplate的ConfimCallback方法和ReturnCallback方法,网上大多配置为全局修改,
+     * 使用RabbitMq,发送消息确认,需要使用rabbitTemplate的ConfirmCallback方法和ReturnCallback方法,网上大多配置为全局修改,
      * 如果需要对单个生产者进行配置,则需要将rabbitTemplate设置为多例,在需要单独配置的生产者
-     * 使用@PostConstruct注解进行设置rabbitTemplate的ConfimCallback方法和ReturnCallback方法
+     * 使用@PostConstruct注解进行设置rabbitTemplate的ConfirmCallback方法和ReturnCallback方法
      */
     @Bean(name = "simpleRabbitListenerContainerFactory")
     public SimpleRabbitListenerContainerFactory simpleRabbitListenerContainerFactory(ConnectionFactory connection) {
@@ -117,11 +134,11 @@ public class RabbitmqConfig {
         factory.setConnectionFactory(connection);
         // NONE:不确认,MANUAL:手动确认,AUTO:自动确认(默认)
         factory.setAcknowledgeMode(AcknowledgeMode.MANUAL);
-        // 默认消费者数量
+        // 默认消费者线程数量
         //factory.setConcurrentConsumers(5);
-        // 最大消费者数量
+        // 最大消费者线程数量
         //factory.setMaxConcurrentConsumers(10);
-        // 每次给消费者发送的消息数量
+        // 每次给消费者发送的消息数量(设置预取数量等同于原生写法channel.basicQos(1);)
         factory.setPrefetchCount(1);
         return factory;
     }
@@ -317,7 +334,21 @@ public class RabbitmqConfig {
     /*-----------------------------------手动确认消息队列----------------------------------*/
     @Bean(name = "manualQueue")
     public Queue manualQueue() {
-        return new Queue("com.direct.testManualQueue", true, false, false);
+        // 正常队列和死信进行绑定,转发到死信队列，配置参数
+        Map<String, Object> map = new HashMap<>();
+        // 3种方式 任选其一,选择其他方式之前,先把交换机和队列删除了,在启动项目,否则报错。
+        // 方式一
+        // 死信交换器名称，过期或被删除（因队列长度超长或因空间超出阈值）的消息可指定发送到该交换器中；
+        map.put("x-dead-letter-exchange", "com.direct.testDeadExchange");
+        // 死信消息路由键，在消息发送到死信交换器时会使用该路由键，如果不设置，则使用消息的原来的路由键值
+        map.put("x-dead-letter-routing-key", "com.direct.testDeadRountingKey");
+        // 方式二
+        // 消息的过期时间，单位：毫秒；达到时间 放入死信队列
+        //map.put("x-message-ttl",5000);
+        // 方式三
+        // 队列最大长度，超过该最大值，则将从队列头部开始删除消息；放入死信队列一条数据
+        //map.put("x-max-length",3);
+        return new Queue("com.direct.testManualQueue", true, false, false, map);
     }
     
     @Bean(name = "manualExchange")
@@ -329,6 +360,32 @@ public class RabbitmqConfig {
     public Binding bindingManual(@Qualifier(value = "manualQueue") Queue directQueue,
                                  @Qualifier(value = "manualExchange") DirectExchange directExchange) {
         return BindingBuilder.bind(directQueue).to(directExchange).with("com.direct.testManualRountingKey");
+    }
+    
+    /* ----------申明死信队列---------
+     * 创建一个普通队列时，通过添加配置绑定另一个交换机(死信交换机)，在普通队列发生异常时，
+     * 消息就通过死信交换机转发到绑定它的队列里，这个绑定死信交换机的队列就是死信队列
+     * 三种情况会走死信交换机
+     * 1.信息消费者确认失败,也未将消息重新放入队列
+     * 2.信息过期,可以设置消费任务超时时间
+     * 3.信息消费队列溢出
+     */
+    @Bean(name = "deadQueue")
+    public Queue deadQueue() {
+        return new Queue("com.direct.testDeadQueue", true, false, false);
+    }
+    
+    /*死信交换机*/
+    @Bean(name = "deadExchange")
+    public DirectExchange deadExchange() {
+        return new DirectExchange("com.direct.testDeadExchange", true, false);
+    }
+    
+    /*绑定死信队列和死信交换机,这里交换机与rountiongkey都需要与正常队列和死信进行绑定时的对应上*/
+    @Bean(name = "bindingDead")
+    public Binding bindingDead(@Qualifier(value = "deadQueue") Queue directQueue,
+                               @Qualifier(value = "deadExchange") DirectExchange directExchange) {
+        return BindingBuilder.bind(directQueue).to(directExchange).with("com.direct.testDeadRountingKey");
     }
     
 }

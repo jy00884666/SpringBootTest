@@ -15,7 +15,7 @@ import java.util.Map;
 
 /*消息消费者  Direct 单对单模式 */
 @Component
-/*监听哪个队列  队列名称*/
+/*监听哪个队列,queues:队列名称,可以监听多个消息队列,用数组*/
 @RabbitListeners({@RabbitListener(queues = "com.direct.testQueue")})
 public class RabbitmqConsumerDirect {
     
