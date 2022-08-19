@@ -19,7 +19,7 @@ import java.util.Map;
 @Component
 /*监听哪个队列,queues:队列名称,containerFactory:用哪个工厂名称*/
 @RabbitListener(queues = "com.direct.testDeadQueue", containerFactory = "simpleRabbitListenerContainerFactory")
-/*表名Spirng容器启动类*/
+/*表名Spirng容器启动类,为了方便junit启动*/
 @SpringBootApplication
 /*为了方便junit启动时不报错,这里需要@import配置类,如果启动SpirngBoot这里可以不用@import*/
 @Import(RabbitmqConfig.class)

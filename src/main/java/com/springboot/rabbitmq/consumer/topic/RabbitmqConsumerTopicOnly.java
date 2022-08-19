@@ -15,7 +15,7 @@ import java.util.Map;
 @Component
 /*监听哪个队列,queues:队列名称*/
 @RabbitListener(queues = "com.topic.testQueue")
-/*表名Spirng容器启动类*/
+/*表名Spirng容器启动类,为了方便junit启动*/
 @SpringBootApplication
 public class RabbitmqConsumerTopicOnly {
     

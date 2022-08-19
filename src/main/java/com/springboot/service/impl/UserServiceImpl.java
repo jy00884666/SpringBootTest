@@ -12,8 +12,11 @@ public class UserServiceImpl implements UserService {
     
     private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     
-    public String test() {
+    public String test() throws Exception {
         logger.info("执行了userServiceImpl的test()方法");
+        if (true) {
+            //throw new NullPointerException("抛个异常玩玩");
+        }
         return "userService.test()";
     }
 }

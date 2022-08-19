@@ -2,5 +2,6 @@ package com.springboot.service;
 
 public interface UserService {
     
-    public String test();
+    public String test() throws Exception;
+    
 }
