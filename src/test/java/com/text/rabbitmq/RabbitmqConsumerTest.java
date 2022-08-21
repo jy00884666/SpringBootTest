@@ -15,7 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-/*消息发送者测试*/
+/*消息消费者测试*/
 /*让 Junit运行Spring的测试环境,得到 Spring环境的上下文的支持*/
 @RunWith(SpringRunner.class)
 /* 主启动类名,使用webEnvironment配置WEB环境时,就必须加上@SpringBootApplication注解

@@ -1,5 +1,6 @@
 package com.springboot;
 
+import com.springboot.annotations.ConcurrentAdvice;
 import com.springboot.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,20 +28,26 @@ public class Application {
         // 启动类入口
         ConfigurableApplicationContext context = SpringApplication.run(Application.class);
         // 从 SpringBoot 容器中获取对象
-        /*UserService userService = context.getBean(UserService.class);
-        logger.info(userService.test());*/
+        //UserService userService = context.getBean(UserService.class);
+        //logger.info("测试UserService:"+userService.test());
+        /*---------------------测试并发-----------------------*/
+        //userService.concurrentTest();
         
-        /*-------------------手动关闭应用方法1------------------------------------------*/
+        
+        
+        /*-------------------手动关闭应用方法1-----------------------*/
         //logger.info("手动关闭springboot服务");
         //context.close();
         
+        
+        
         /*----------------匿名内部类写法----------------*/
-        UserService userService = new UserService() {
+        /*UserService userService = new UserService() {
             public String test() throws Exception {
                 return "匿名内部类写法";
             }
         };
-        logger.info(userService.test());
+        logger.info(userService.test());*/
         
         /*-----------------Lambda表达式写法-------------*/
         /**
@@ -52,10 +59,10 @@ public class Application {
          * 6、lambda不会生成一个单独的内部类文件；
          * 7、lambda表达式若访问了局部变量，则局部变量必须是final的，若是局部变量没有加final关键字，系统会自动添加，此后在修改该局部变量，会报错；
          * */
-        UserService lambdaTest = () -> {
+        /*UserService lambdaTest = () -> {
             return "Lambda表达式写法";
         };
-        logger.info(lambdaTest.test());
+        logger.info(lambdaTest.test());*/
     }
     
     /**
