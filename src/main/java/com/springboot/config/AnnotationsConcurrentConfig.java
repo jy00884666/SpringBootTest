@@ -40,8 +40,8 @@ public class AnnotationsConcurrentConfig {
     @Bean
     public RegexpMethodPointcutAdvisor regexpMethodPointcutAdvisor() {
         RegexpMethodPointcutAdvisor regexpMethodPointcutAdvisor = new RegexpMethodPointcutAdvisor();
-        // 基于正则表达式的方法拦截
-        regexpMethodPointcutAdvisor.setPatterns("com.springboot.service.*");
+        // 基于正则表达式的方法拦截 ..*表示包或其子包下所有类
+        regexpMethodPointcutAdvisor.setPatterns("com.springboot.service..*");
         // 切面处理类
         regexpMethodPointcutAdvisor.setAdvice(concurrentAdvice);
         return regexpMethodPointcutAdvisor;

@@ -14,12 +14,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 并发控制的注解
- * @author shashijie
- * @description:
- * @reason: ADD REASON(可选)
- * @date 2017-01-25
- * @since JDK 1.7
+ * 并发控制的注解,自定义注解
  */
 // Target 设置注解权限,定义此注解可以申明在哪里 METHOD:方法上,TYPE:类上
 @Target({ElementType.METHOD, ElementType.TYPE})

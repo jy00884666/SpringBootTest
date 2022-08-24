@@ -7,10 +7,14 @@
 
 package com.springboot.annotations;
 
+import com.alibaba.fastjson.JSON;
 import com.springboot.exception.BusinessException;
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.lang.StringUtils;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -23,8 +27,18 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * 并发控制切面, 继承方法拦截器MethodInterceptor
+ * spring中拦截器主要分两种，一个是HandlerInterceptor，一个是MethodInterceptor。
+ *
+ * 1.HandlerInterceptor是springMVC项目中的拦截器，它拦截的目标是请求的地址，比MethodInterceptor先执行。
+ * 实现一个HandlerInterceptor拦截器可以直接实现HandlerInterceptor接口，也可以继承HandlerInterceptorAdapter类。具体得自己查资料
+ *
+ * 2.MethodInterceptor是AOP项目中的拦截器，它拦截的目标是方法，即使不是controller中的方法。实现MethodInterceptor拦截器大致也分为两种，一种是实现MethodInterceptor
+ * 接口，另一种利用AspectJ的注解或配置。
+ * 下面是第一种方法的示例
  */
 @Component("concurrentAdvice")
+/*这里通过使用实现MethodInterceptor接口方法实现拦截,也可以使用AOP的环绕通知实现,这里不用环绕通知所以不声明切面了*/
+/*@Aspect*/
 public class ConcurrentAdvice implements MethodInterceptor {
     
     private static final Logger logger = LoggerFactory.getLogger(ConcurrentAdvice.class);
@@ -70,7 +84,7 @@ public class ConcurrentAdvice implements MethodInterceptor {
         }
         
         try {
-            // 执行该方法
+            // 执行目标方法
             return methodInvocation.proceed();
         } finally {
             if (isRun != null) {
@@ -82,10 +96,6 @@ public class ConcurrentAdvice implements MethodInterceptor {
     
     /**
      * shashijie 2017-01-25 获取key,默认用类名+"."+方法全路径声明
-     * @param annotation
-     * @param methodInvocation
-     * @return
-     * @throws NoSuchAlgorithmException String
      */
     private String generateKey(Sync annotation, MethodInvocation methodInvocation)
             throws NoSuchAlgorithmException {
@@ -127,9 +137,6 @@ public class ConcurrentAdvice implements MethodInterceptor {
     
     /**
      * shashijie 2017-01-25 加密方法
-     * @param str
-     * @return
-     * @throws NoSuchAlgorithmException String
      */
     private static String md5(String str) throws NoSuchAlgorithmException {
         byte[] buf = str.getBytes();
@@ -143,4 +150,14 @@ public class ConcurrentAdvice implements MethodInterceptor {
         return sb.toString();
     }
     
+    /*类上未声明切面@Aspect所以无效,写下来只是说明可以用环绕通知实现一样的功能*/
+    /*环绕增强*/
+    @Around("execution (* com.springboot.service..*.*(..))")
+    public Object around(ProceedingJoinPoint point) throws Throwable {
+        logger.info("测试环绕增强point:{}", JSON.toJSONString(point.getSignature()));
+        // 执行目标方法
+        Object object = point.proceed();
+        logger.info("测试环绕增强object:{}", JSON.toJSONString(object));
+        return object;
+    }
 }

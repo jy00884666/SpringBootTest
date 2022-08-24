@@ -26,6 +26,14 @@ public class ConcurrentTest {
     
     private static Logger logger = LoggerFactory.getLogger(ConcurrentTest.class);
     
+    /*非并发*/
+    @Test
+    public void myTest() throws Exception {
+        ConfigurableApplicationContext context = SpringApplication.run(Application.class);
+        UserService userService = context.getBean(UserService.class);
+        userService.test();
+    }
+    
     /*测试并发*/
     @Test
     public void consumerTest() {

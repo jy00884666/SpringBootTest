@@ -46,13 +46,38 @@ public class AopLogConfig {
     
     private static Logger logger = LoggerFactory.getLogger(AopLogConfig.class);
     
-    // 切入点配置和切入点表达式,(第一个*表示返回值,第二个*表示任意类,第三个*表示任意方法,(..)表示任意参数)
-    @Pointcut(value = "execution(* com.springboot.service.*.*(..))")
-    public void demo() {
+    // 切入点配置和切入点表达式,(第一个*表示返回值,第二个*表示任意类..*表示包或其子包,第三个*表示任意方法,(..)表示任意参数)
+    @Pointcut(value = "execution(* com.springboot.service..*.*(..))")
+    public void pointcutExecution() {
     }
     
-    // 前置通知
-    @Before("demo()")
+    /*切入点表达式:只需要申明类,最小粒度只能到类*/
+    @Pointcut("within(com.springboot.service..*)")
+    public void pointcutWithin() {
+    }
+    
+    /*切入点表达式:代理实现接口,cglib与jdk有区别,JDK代理的话只能用UserService接口不能用UserServiceImpl实现类,CGlib由于是继承原理所以都可以*/
+    @Pointcut("this(com.springboot.service.UserService)")
+    public void pointcutThis() {
+    }
+    
+    /*切入点表达式:目标对象实现接口,这里可以是UserService接口也可以是UserServiceImpl实现类*/
+    @Pointcut("target(com.springboot.service.UserService)")
+    public void pointcutTarget() {
+    }
+    
+    /*切入点表达式:表达式的作用是匹配指定参数类型和指定参数数量的方法,与包名和类名无关,例如:首个入参为String参数,后面任意入参,任意类型*/
+    @Pointcut("args(java.lang.String,..)")
+    public void pointcutArgs() {
+    }
+    
+    /*切入点作用方法级别,配合自定义注解使用*/
+    @Pointcut("@annotation(com.springboot.annotations.Sync)")
+    public void pointcutAnnotation() {
+    }
+    
+    // 前置通知 都支持多个表达式
+    @Before(value = "pointcutExecution() && !pointcutArgs() && !pointcutAnnotation()")
     public void before(JoinPoint joinPoint) {
         logger.info("before开始执行joinPoint={}", JSON.toJSONString(joinPoint.getSignature()));
         String methodName = joinPoint.getSignature().getName();
@@ -62,7 +87,7 @@ public class AopLogConfig {
     }
     
     // 后置通知
-    @After("demo()")
+    @After("pointcutExecution() && pointcutWithin() && !pointcutAnnotation()")
     public void after(JoinPoint joinPoint) {
         logger.info("after开始执行joinPoint={}", JSON.toJSONString(joinPoint.getSignature()));
         String className = joinPoint.getTarget().getClass().getName();
@@ -71,7 +96,7 @@ public class AopLogConfig {
     }
     
     // 返回通知
-    @AfterReturning(value = "demo()", returning = "result")
+    @AfterReturning(value = "pointcutExecution() && !pointcutAnnotation()", returning = "result")
     public void afterReturning(JoinPoint joinPoint, Object result) {
         logger.info("afterReturning开始执行joinPoint={}", JSON.toJSONString(joinPoint.getSignature()));
         String className = joinPoint.getTarget().getClass().getName();
@@ -80,7 +105,7 @@ public class AopLogConfig {
     }
     
     // 异常通知
-    @AfterThrowing(value = "demo()", throwing = "e")
+    @AfterThrowing(value = "pointcutExecution() && !pointcutAnnotation()", throwing = "e")
     public void afterThrowing(JoinPoint joinPoint, Exception e) {
         logger.info("afterThrowing开始执行joinPoint={}", JSON.toJSONString(joinPoint.getSignature()));
         String className = joinPoint.getTarget().getClass().getName();
@@ -89,7 +114,7 @@ public class AopLogConfig {
     }
     
     // 环绕通知
-    @Around("demo()")
+    @Around("pointcutExecution() && !pointcutAnnotation()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         logger.info("==============================开始记录日志==start=============================");
         // ----------------前置---------------
