@@ -1,6 +1,7 @@
 package com.springboot.config;
 
 import com.alibaba.fastjson.JSON;
+import com.springboot.annotations.Sync;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
@@ -14,7 +15,6 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
 
@@ -114,22 +114,23 @@ public class AopLogConfig {
     }
     
     // 环绕通知
-    @Around("pointcutExecution() && !pointcutAnnotation()")
+    @Around("pointcutExecution()")
     public Object around(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         logger.info("==============================开始记录日志==start=============================");
         // ----------------前置---------------
         long startTime = System.currentTimeMillis();
-        logger.info("环绕通知前置proceedingJoinPoint={}", JSON.toJSONString(proceedingJoinPoint.getSignature()));
+        logger.info("环绕通知前置proceedingJoinPoint.getSignature()={}",
+                JSON.toJSONString(proceedingJoinPoint.getSignature()));
         
         // getSignature());是获取到这样的信息 :修饰符+ 包名+组件名(类名) +方法名
         MethodSignature methodSignature = (MethodSignature) proceedingJoinPoint.getSignature();
         // 获取执行方法实例
         Method method = methodSignature.getMethod();
         // 判断方法上是否存在注解，并获取方法上面注解的实例
-        if (method.isAnnotationPresent(Component.class)) {
+        if (method.isAnnotationPresent(Sync.class)) {
             // getAnnotation:方法如果存在这样的注释，则返回指定类型的元素的注释，否则为null
-            Component logAnnotation = method.getAnnotation(Component.class);
-            logger.info("注解测试value:{}", logAnnotation.value());
+            Sync logAnnotation = method.getAnnotation(Sync.class);
+            logger.info("注解测试name:{}", logAnnotation.name());
             logger.info("注解测试class:{}", logAnnotation.getClass());
         }
         // proceedingJoinPoint.getTarget():获取切入点所在目标对象
@@ -154,7 +155,7 @@ public class AopLogConfig {
          * 暴露出这个方法，就能支持 aop:around 这种切面（而其他的几种切面只需要用到JoinPoint，，这也是环绕通知和前置、后置通知方法的一个最大区别。这跟切面类型有关）
          * */
         try {
-            result = proceedingJoinPoint.proceed();
+            result = proceedingJoinPoint.proceed(args);
         } catch (Throwable th) {
             logger.error("环绕异常通知:", th);
             //throw new Throwable(th);
