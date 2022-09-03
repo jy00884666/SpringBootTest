@@ -13,6 +13,7 @@ public class UserServiceImpl implements UserService {
     
     private static Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
     
+    /*普通方法*/
     @Override
     public String test() throws Exception {
         logger.info("执行了userServiceImpl的test()方法");
