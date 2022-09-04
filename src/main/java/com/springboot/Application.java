@@ -1,6 +1,7 @@
 package com.springboot;
 
 import com.springboot.annotations.ConcurrentAdvice;
+import com.springboot.bean.UserInfo;
 import com.springboot.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,12 @@ public class Application {
         
         // 启动类入口
         ConfigurableApplicationContext context = SpringApplication.run(Application.class);
+        // 从 SpringBoot 容器中获取对象
+        UserInfo userInfo = context.getBean(UserInfo.class);
+        logger.info("userInfo={}", userInfo);
+        
+        
+        
         // 从 SpringBoot 容器中获取对象
         //UserService userService = context.getBean(UserService.class);
         //logger.info("测试UserService:"+userService.test());
