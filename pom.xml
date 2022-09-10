@@ -55,7 +55,7 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.54</version>
         </dependency>
-        <!--空的起步依赖-->
+        <!--SpringBoot测试,空的起步依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -73,7 +73,21 @@
             <artifactId>lombok</artifactId>
             <version>1.16.6</version>
         </dependency>
-    
+        <!--Redis在spring boot 2.0以后默认使用lettuce客户端整合-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!-- Redis lettuce pool 缓存连接池 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+        <!-- Redis jackson json 优化缓存对象序列化 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
     </dependencies>
     
     <!--
