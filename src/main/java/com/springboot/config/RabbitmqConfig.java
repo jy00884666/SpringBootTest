@@ -29,8 +29,8 @@ import org.springframework.context.annotation.Scope;
 import java.util.HashMap;
 import java.util.Map;
 
-/*RabbitMQ配置类*/
-@Configuration
+/*RabbitMQ配置类,注释后表示Spring启动时不会加载配置项目,不会使用RabbitMQ*/
+//@Configuration
 public class RabbitmqConfig {
     
     private static Logger logger = LoggerFactory.getLogger(RabbitmqConfig.class);

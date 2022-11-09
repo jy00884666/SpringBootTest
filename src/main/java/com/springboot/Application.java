@@ -2,7 +2,9 @@ package com.springboot;
 
 import com.springboot.annotations.ConcurrentAdvice;
 import com.springboot.bean.UserInfo;
+import com.springboot.service.LambdaService;
 import com.springboot.service.UserService;
+import com.springboot.service.impl.UserServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -27,10 +29,10 @@ public class Application {
         System.out.println("打印默认编码:" + System.getProperty("file.encoding"));
         
         // 启动类入口
-        ConfigurableApplicationContext context = SpringApplication.run(Application.class);
+        //ConfigurableApplicationContext context = SpringApplication.run(Application.class);
         // 从 SpringBoot 容器中获取对象
-        UserInfo userInfo = context.getBean(UserInfo.class);
-        logger.info("userInfo={}", userInfo);
+        /*UserInfo userInfo = context.getBean(UserInfo.class);
+        logger.info("userInfo={}", userInfo);*/
         
         
         
@@ -49,12 +51,12 @@ public class Application {
         
         
         /*----------------匿名内部类写法----------------*/
-        /*UserService userService = new UserService() {
-            public String test() throws Exception {
-                return "匿名内部类写法";
+        /*LambdaService lambdaService = new LambdaService() {
+            public String outprint(Integer i, Integer j) throws Exception {
+                return "匿名内部类写法" + String.valueOf(i + j);
             }
         };
-        logger.info(userService.test());*/
+        logger.info(lambdaService.outprint(1, 2));*/
         
         /*-----------------Lambda表达式写法-------------*/
         /**
@@ -66,10 +68,22 @@ public class Application {
          * 6、lambda不会生成一个单独的内部类文件；
          * 7、lambda表达式若访问了局部变量，则局部变量必须是final的，若是局部变量没有加final关键字，系统会自动添加，此后在修改该局部变量，会报错；
          * */
-        /*UserService lambdaTest = () -> {
-            return "Lambda表达式写法";
+        /*LambdaService lambdaTest = (Integer i, Integer j) -> {
+            return "Lambda表达式写法" + String.valueOf(i + j);
         };
-        logger.info(lambdaTest.test());*/
+        logger.info(lambdaTest.outprint(1, 2));*/
+        
+        /**
+         * 方法引用： 可以快速的将一个Lambda表达式的实现指向一个已经实现的方法
+         * 语法：方法的隶属者::方法名
+         * 注意：
+         * 1.引用的方法中，参数数量和类型一定要和接口中定义的方法一致
+         * 2.返回值的类型也一定要和接口中的方法一致
+         * */
+        /*LambdaService lambdaService1 = lambdaTest::outprint;
+        logger.info(lambdaService1.outprint(4, 5));*/
+        
+
     }
     
     /**
